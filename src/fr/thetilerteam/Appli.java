@@ -12,7 +12,7 @@ public class Appli {
 		System.out.println("Pour jouer --> jouer");
 		System.out.println("Obtenir son score - score");
 	}
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		// Instanciation de tous les objets
 		Package p = new Package();
 		Game game = new Game();
@@ -20,14 +20,19 @@ public class Appli {
 		Score s = new Score(w,game);
 		Play play = new Play(game,w,s,p);
 
-		play.addRandomTile();
+		try {
+			play.addRandomTile();
+		} catch (IOException e1) {
+			System.out.println("Impossible !!");
+			
+		}
 		System.out.println("Début de partie !! Bonne chance");
 		System.lineSeparator();
 		System.out.println(play.toString());
 		Scanner sc = new Scanner(System.in);
 		gameMessage();
 		if(sc.next().equals("jouer")) {
-			while(!play.isFinish()){
+			while(!play.isFinish() || sc.next().equals("exit")){
 				String chain = "";
 				if (!chain.equals("exit")) {
 					Card c = play.pickCard();
@@ -42,17 +47,19 @@ public class Appli {
 						chain = sc.next().trim();
 					} 
 						System.out.println("Voici les carreaux dispo pour la carte tirée:" + "\n" + game.toStringtab(c));
-						System.out.println("Selectionner un carreau pour la consigne donnÃ©e [a-i][A-I] et la position");
+						System.out.println("Selectionner un carreau pour la consigne donnée [a-i][A-I] et la position");
 						chain = sc.next();
 						int y = sc.nextInt() - 1;
 						int x = sc.nextInt() - 1;
 
 						try {
-							play.addTile(x, y, game.choice(chain));
-						} catch (IllegalArgumentException e) {
+							play.addTile(y, x, game.choice(chain));
+						} catch (IllegalArgumentException | IOException e) {
 							System.out.println("Entrez des  coordonnées correct où verifiez les conditions de pose !!");
 						} 
 						System.out.println(play.toString());
+						System.out.println("Voulez vous continuer ou arrêter de jouer ? (exit)");
+						sc.next();
 
 					}
 				

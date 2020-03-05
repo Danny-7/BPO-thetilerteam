@@ -1,7 +1,5 @@
 package fr.thetilerteam;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -24,15 +22,18 @@ class WallTest {
 			int x = sc.nextInt()-1;
 			int y = sc.nextInt()-1;
 			try {
-				w.addTile(y,x, g.choice(id));
+				p.addTile(y,x, g.choice(id));
 			}
-			catch(IOException e) {
-				System.out.println("Entrez des coordonées correct et/ou un caractère correct");
+			catch(IllegalArgumentException  | IOException e) {
+				System.out.println("Impossible de poser le carreau ! ");
 			}
-			w.toString();
+			
+			System.out.println(w.toString());
+		}
+		sc.close();
 			
 		}
 		
-	}
+	
 
 }

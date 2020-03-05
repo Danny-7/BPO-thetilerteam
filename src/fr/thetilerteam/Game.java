@@ -103,7 +103,7 @@ public class Game{
 	 */
 	public  Tile choice(String id) throws IllegalArgumentException {
 		int i = 0;
-		while(!tile.get(i).getId().name().equals(id)) throw new IllegalArgumentException("Caractère invalide !!!"); {
+		while(!tile.get(i).getId().name().equals(id)){
 			++i;
 		}
 		return tile.remove(i);

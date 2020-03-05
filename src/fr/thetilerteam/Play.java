@@ -34,7 +34,7 @@ public class Play {
 		return game.isEmpty() || p.isEmpty();
 	}
 
-	public void addTile(int x, int y, Tile t) throws IOException{
+	public void addTile(int y, int x, Tile t) throws IOException{
 		wall.addTile(y,x,t);
 	}
 	
@@ -42,20 +42,20 @@ public class Play {
 		return p.pick();
 	}
 	
-	public void addRandomTile() throws IOException{
+	public void addRandomTile() throws IOException {
 		Random r = new Random();
 		switch(1 + r.nextInt(4-0)) {
 		case 1: 
 			addTile(0,0,new Tile(IdCard.x,3,1));
 			break;
 		case 2:
-			addTile(2,0,new Tile(IdCard.x,3,1));
+			addTile(0,2,new Tile(IdCard.x,3,1));
 			break;
 		case 3:
 			addTile(0,0,new Tile(IdCard.x,1,3));
 			break;
 		default:
-			addTile(4,0,new Tile(IdCard.x,1,3));
+			addTile(0,4,new Tile(IdCard.x,1,3));
 			break;
 		}
 	}
