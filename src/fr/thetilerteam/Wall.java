@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class Wall {
 	private static final int MAX_WIDTH = 5;
 	private ArrayList<Character[]> wall;
-	//private Game g = new Game();
 	
 	
 	/*
