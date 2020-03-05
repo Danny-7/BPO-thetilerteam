@@ -26,7 +26,8 @@ public class Appli {
 		System.out.println(play.toString());
 		Scanner sc = new Scanner(System.in);
 		gameMessage();
-		if(sc.next().equals("jouer")) {
+		String choix = sc.next();
+		if(choix.equals("jouer")) {
 			while(!play.isFinish()){
 				String chain = "";
 				if (!chain.equals("exit")) {
@@ -66,14 +67,14 @@ public class Appli {
 				
 
 			}
-		else if(sc.next().equals("exit")) {
+		else if(choix.equals("exit")) {
 			System.out.println(s.displayScore());
 			System.out.println("\t");
 			System.out.println(play.toString());
 			play.exit();
 
 		}
-		else if(sc.next().equals("score")) {
+		else if(choix.equals("score")) {
 			System.out.println(s.displayScore());
 			System.out.println("\t");
 		}
