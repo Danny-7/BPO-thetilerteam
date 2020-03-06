@@ -6,18 +6,14 @@ import java.util.Random;
 public class Play {
 	Game game;
 	Wall wall;
-	Score s;
 	Package p;
 	
 	public Play(Game g, Wall w) {
 		this.game = g;
 		this.wall = w;
 	}
-	
-
-	public Play(Game game, Wall wall,Score s,Package p) {
+	public Play(Game game, Wall wall,Package p) {
 		this(game,wall);
-		this.s = s;
 		this.p = p;
 	}
 	
@@ -33,15 +29,22 @@ public class Play {
 	public boolean isFinish(){
 		return game.isEmpty() || p.isEmpty();
 	}
-
+	/*
+	 * Ajouter un carreau au mur
+	 */
 	public void addTile(int y, int x, Tile t) throws IOException{
 		wall.addTile(y,x,t);
 	}
-	
+	/*
+	 * Piocher une carte
+	 */
 	public Card pickCard(){
 		return p.pick();
 	}
 	
+	/*
+	 * Placement de la pièce neutre sur le mur
+	 */
 	public void addRandomTile() throws IOException {
 		Random r = new Random();
 		switch(1 + r.nextInt(4-0)) {

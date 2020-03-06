@@ -1,6 +1,6 @@
 package fr.thetilerteam;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 import java.util.Scanner;
 
@@ -24,10 +24,10 @@ class GameTest {
 					System.out.println("Veuillez entrez un caractère correct !! \n");
 				}
 				
-	
+				sc.close();
 		}
 		System.out.println("Il n'y a plus de carreau !!");
-		
+	
 	}
 
 }

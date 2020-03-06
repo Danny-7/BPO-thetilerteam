@@ -13,19 +13,25 @@ public class Tile {
 	 * @param id l'identifiant du carreau
 	 * @param width largeur du carreau
 	 * @param height hauteur du carreau
-	 * @param color couleur du carreau
 	 */
 	public Tile(IdCard id, int width, int height) {
 		this.id = id;
 		this.height = height;
 		this.width = width;
 	}
+	
+	/*
+	 * Constructeur d'un carreau
+	 * 
+	 * @param id l'identifiant du carreau
+	 * @param width largeur du carreau
+	 * @param height hauteur du carreau
+	 * @param color couleur du carreau
+	 */
 	public Tile(IdCard id, int width, int height,Color color){
 		this(id,width,height);
 		this.color = color;
 	}
-	
-	
 	
 	/*
 	 * Retourne l'identifiant d'un carreau
@@ -36,21 +42,21 @@ public class Tile {
 	}
 	
 	/*
-	 * Obtient la largeur d'un carreau
+	 * Retourne la largeur d'un carreau
 	 */
 	public int getWidth() {
 		return this.width;
 	}
 	
 	/*
-	 * Obtient la hauteur d'un carreau
+	 * Retourne la hauteur d'un carreau
 	 */
 	public int getHeight() {
 		return this.height;
 	}
 	
 	/*
-	 * Obtient la couleur d'un carreau
+	 * Retourne la couleur d'un carreau
 	 */
 	public String getColor() {
 		return this.color.name();

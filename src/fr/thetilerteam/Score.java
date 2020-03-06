@@ -21,28 +21,28 @@ public class Score {
     private int countWallScore(){
         int c = 0;
         int row = 0;
-        while(c != 5){
             for(int i = 0; i < this.w.getWall().size();++i){
                 for(int j = 0; j < this.w.getWall().get(i).length; ++j){
                 	if(c == 5) {
+                		row = this.w.getWall().size();
                 		return row;
                 	}
                     char ch = this.w.getWall().get(i)[j];
                     if(ch!= ' ')
                         c++;
-                    row = this.w.getWall().size();
+                  
                 }
-                c= 0;
+                c = 0;
             }
         
-        }
+        
         return row;
     }
 
     public String displayScore(){
         String s = "";
-        s+= countWallScore()*POINTS + "points";
-        s+= "("+countWallScore()+ "niveaux complets,"+ g.getSize()+ "carreaux non posés,"+ this.discard.size()+ "cartes écartées)";
+        s+= countWallScore()*POINTS +" points";
+        s+= " ("+countWallScore()+" niveaux complets, "+ g.getSize()+ " carreaux non posés, "+ this.discard.size()+" cartes écartées)";
         return s;
     }
 

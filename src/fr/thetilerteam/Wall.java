@@ -14,7 +14,7 @@ public class Wall {
 	public Wall() {
 		wall = new ArrayList<Character[]>();
 		Character[] t = new Character[MAX_WIDTH];
-			wall.add(t);
+			wall.add(t); // Ajout d'une ligne au mur
 		for(int i = 0; i<wall.size();++i) {
 			for(int j = 0; j<wall.get(i).length;++j) {
 				wall.get(i)[j] = ' ';
@@ -25,14 +25,14 @@ public class Wall {
 	}
 	
 	/*
-	 * crer des lignes dans le mur et les remplir
+	 * Ajoute des lignes dans le mur et les remplies
 	 * 
 	 * @param t le carreau à poser
 	 * @param y la position en y
 	 */
 	private void fillArray(Tile t,int y) {
-		int f = y + t.getHeight() +1; 
-		int c = wall.size(); // wall.size() - 1;
+		int f = y + t.getHeight() +1; // nb lignes à ajouter
+		int c = wall.size();
 		while(wall.size() < f) {
 			Character[] tab = new Character[MAX_WIDTH];
 			wall.add(tab);
@@ -44,13 +44,15 @@ public class Wall {
 			}
 		}
 	}
-
+	/*
+	 * Retourne le mur
+	 */
 	public ArrayList<Character[]> getWall(){
 		return wall;
 	}
 	
 	/*
-	 * Contrainte du non depassement des limites du mur avec la largeur du carreau 
+	 * Contrainte du non dépassement des limites du mur avec la largeur du carreau 
 	 * 
 	 * @param x la position du carreau
 	 * @param t le carreau avec ses propriétées
@@ -104,9 +106,8 @@ public class Wall {
 		int cptD = 0;
 		boolean ok = false;
 		if(y > 0) {
-			char c = wall.get(y-1)[x];
+			char c = wall.get(y-1)[x]; // Lecture du caractère prsent
 			if(x > 0) {
-				// Il nous faut initialisé i pour récupérer la valeur a gauche
 				for(int col = x; col > x-1 ; --col) { 
 					if(wall.get(y-1)[col-1]== c) 
 						++cptG;
@@ -158,7 +159,7 @@ public class Wall {
 	 */
 	private boolean hasBase(int y,int x, Tile t) {
 		boolean ok = false;
-		if(wall.get(y)[x] == ' ') {
+		if(wall.get(y)[x] == ' ') { // Si il y'a un carreau déja posé
 			if(countWidth(y,x,t)) {
 				if(y>0)
 					ok = t.getWidth() <= countBase(y,x,t);
@@ -221,7 +222,7 @@ public class Wall {
 		boolean ok = false;
 		if(x < MAX_WIDTH -1) {
 			char c = wall.get(y)[x+1];
-			if(c!= ' ') {
+			if(c!= ' ') { // Si il y'a un espace on retourne vrai 
 				if(y>0) {
 					for(int z = y; z > 1; --z) {
 						if(wall.get(z-1)[x+1]== c)
@@ -233,7 +234,7 @@ public class Wall {
 					}
 				}
 				else {
-					for(int z = y ; z < y + t.getHeight(); ++z) { // for(;y< t.getHeight(); ++y)
+					for(int z = y ; z < y + t.getHeight(); ++z) {
 						if(wall.get(z+1)[x+1]== c)
 							++cptH;	
 					}
@@ -256,6 +257,7 @@ public class Wall {
 	private boolean hasHeight(int y, int x, Tile t) {
 		boolean ok = false;
 		if(x > 0 && x < MAX_WIDTH) {
+			// Si la hauteur du carreau a gauche et a droite nous permet de poser le carreau voulu
 			if(countLeftHeight(y,x,t) && countRightHeight(y,x,t))
 				ok = true;
 		}
@@ -310,7 +312,7 @@ public class Wall {
 
 		for(int i = wall.size() -1;i >= 0; --i) { // MAX_HEIGHT
 			int cellSize = wall.get(i).length; // MAX_WIDTH
-			s.append(i+1);
+			s.append(i+1); // Ajout du numéro de ligne
 			s.append("  ");
 			for(int j = 0; j < cellSize; ++j) {
 				if(wall.get(i)[j] != ' ') {
@@ -325,7 +327,7 @@ public class Wall {
 		s.append("  ");
 		for(int i = 0; i< MAX_WIDTH; ++i) {
 				s.append(" ");
-				s.append(i+1);	
+				s.append(i+1); // Ajout du numéro de la colonne
 		}
 		return s.toString();
 	}

@@ -37,7 +37,9 @@ public class Game{
 				new Tile(IdCard.I,3,3,Color.RED)
 				));
 	}
-
+	/*
+	 * Retourne le nombre de carreaux dans la liste
+	 */
 	public int getSize(){
 		return tile.size();
 	}
@@ -46,11 +48,12 @@ public class Game{
 	 * La liste de carreaux est vide
 	 */
 	public boolean isEmpty() {
-		return tile.size()<1;
+		return tile.isEmpty();
 	}
 
 	/* Stock les carreaux disponibles dans un tableau
 	 * 
+	 * @param c la carte qui a été piochée
 	 * @return tab tableau qui contient les carreaux disponibles 
 	 *  
 	 */
@@ -63,16 +66,16 @@ public class Game{
 		}
 		
 		int cptcol=0;
-		for (Tile t: tile) {
+		for (Tile t: tile) { // Parcours des carreaux dans la liste
 			if(t.isColor(c, t) || t.isSize(c, t) ) {
 				for(int j = 0; j< t.getWidth(); ++j) {
 					for(int k = 0; k< t.getHeight();++k) {
-						tab[k][cptcol] = t.getId().tochar();
+						tab[k][cptcol] = t.getId().tochar(); // Ajout de l'identifiant du carreau 
 					}
 					cptcol++;
 				}
 				if(cptcol<MAX_SIZE) {
-					cptcol+=2;
+					cptcol+=2; // Permet de faire l'espace entre chaque carreau
 				}
 			}
 		}
