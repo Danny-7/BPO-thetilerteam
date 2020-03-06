@@ -82,13 +82,12 @@ public class Package {
 	}
 	
 	/*
-	 * Mï¿½thode pour les tests JUnit
+	 * Méthode pour les tests JUnit
 	 */
 	public String toString() {
 		String s = "";
 		int i = 0;
 		for(Card p : pack) {
-			
 			++i;
 			if(!p.getColor().equals("UNKNOWN")) 
 				s+= i + "{" + p.getColor()+ "}" + System.lineSeparator();
@@ -99,14 +98,16 @@ public class Package {
 	}
 
 	/*
-	 * 	Affiche la carte piochï¿½e
+	 * 	Affiche la carte pioché
+	 * 
+	 * @param 
 	 */
-	public String toString(Card p) throws IllegalArgumentException{
+	public String toString(Card c) throws IllegalArgumentException{
 		String s= "";
-		if(p.getColor().equals("BLUE") || p.getColor().equals("RED"))
-			s+= p.getColor();
+		if(c.getColor().equals("BLUE") || c.getColor().equals("RED"))
+			s+= c.getColor();
 		else
-			s+= p.getSize();
+			s+= c.getSize();
 		return s;
 		
 	}

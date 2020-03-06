@@ -17,14 +17,14 @@ public class Card {
 	}
 	
 	/*
-	 *	Obtient la couleur d'une carte
+	 *	Retourne la couleur d'une carte
 	 */
 	public String getColor() {
 		return this.color.name();
 	}
 	
 	/*
-	 *	Obtient la taille d'une carte 	
+	 *	Retourne la taille d'une carte 	
 	 */
 	public String getSize() {
 		return this.size.name();

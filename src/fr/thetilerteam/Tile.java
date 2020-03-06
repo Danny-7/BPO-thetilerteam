@@ -15,22 +15,20 @@ public class Tile {
 	 * @param height hauteur du carreau
 	 * @param color couleur du carreau
 	 */
-	public Tile(IdCard id, int width, int height,Color color){
-		
-		this.id = id;
-		this.height = height;
-		this.width = width;
-		this.color = color;
-	}
-	
 	public Tile(IdCard id, int width, int height) {
 		this.id = id;
 		this.height = height;
 		this.width = width;
 	}
+	public Tile(IdCard id, int width, int height,Color color){
+		this(id,width,height);
+		this.color = color;
+	}
+	
+	
 	
 	/*
-	 * Obtient l'identifiant d'un carreau
+	 * Retourne l'identifiant d'un carreau
 	 */
 	public IdCard getId() {
 		assert(this.id != null);

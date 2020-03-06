@@ -158,11 +158,13 @@ public class Wall {
 	 */
 	private boolean hasBase(int y,int x, Tile t) {
 		boolean ok = false;
-		if(countWidth(y,x,t)) {
-			if(y>0)
-				ok = t.getWidth() <= countBase(y,x,t);
-			else
-				ok = true;
+		if(wall.get(y)[x] == ' ') {
+			if(countWidth(y,x,t)) {
+				if(y>0)
+					ok = t.getWidth() <= countBase(y,x,t);
+				else
+					ok = true;
+			}
 		}
 		return ok;
 	}
@@ -261,8 +263,6 @@ public class Wall {
 			ok = true;
 		return ok;
 	}
-	
-	
 	
 	/*
 	 * Placement du carreau dans la grille
