@@ -81,7 +81,7 @@ public class Wall {
 	 * @param size taille du carreau
 	 */
 	private boolean cmp(int cpt1, int cpt2, int size ) {
-		boolean ok = false;
+		boolean ok = true;
 		if(cpt1 == 0 && cpt2 == 0) 
 			ok = size > 1;
 		if(cpt1 == 0 && cpt2 == 1) 

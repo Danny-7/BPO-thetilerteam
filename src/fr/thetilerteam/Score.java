@@ -51,7 +51,7 @@ public class Score {
     private int  penaltyCount() {
     	int remainingTile = g.getSize();
     	int discardTile = discard.size();
-    	return remainingTile - discardTile;
+    	return remainingTile + discardTile;
     }
     /*
      * Affiche le score de l'équipe

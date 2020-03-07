@@ -39,7 +39,7 @@ public class Appli {
 				// On pioche une carte
 				Card c = play.pickCard();
 				System.out.println("Voici la carte piochée !" + "\t" + p.toString(c) + "\n");
-				System.out.println("Voici les carreaux disponible(s) pour la carte piochée:" + "\n " + game.toStringtab(c));
+				System.out.println("Voici les carreaux disponible(s) pour la carte piochée:" + "\n" + game.toStringtab(c));
 				System.out.println(CHOICE);
 				choix = sc.next().trim();
 				// Si le choix n'est pas OUI ou NON 
@@ -51,7 +51,7 @@ public class Appli {
 						s.addCard(c);
 						c = play.pickCard();
 						System.out.println("Voici la nouvelle carte piochée !" + "\t" + p.toString(c));
-						System.out.println("Voici les carreaux dispo pour la nouvelle carte piochée:" + " \n " + game.toStringtab(c));
+						System.out.println("Voici les carreaux dispo pour la nouvelle carte piochée:" + " \n" + game.toStringtab(c));
 						System.out.println(CHOICE);
 						choix = sc.next();
 					}
