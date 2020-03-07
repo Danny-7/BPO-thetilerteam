@@ -7,4 +7,4 @@ public enum Color {
 	RED,
 	GREEN,
 	UNKNOWN
-};
+}

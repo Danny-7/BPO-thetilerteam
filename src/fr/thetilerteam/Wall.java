@@ -52,7 +52,8 @@ public class Wall {
 	}
 	
 	/*
-	 * Contrainte du non dépassement des limites du mur avec la largeur du carreau 
+	 * Contrainte du non dépassement des limites du mur 
+	 * avec la largeur du carreau 
 	 * 
 	 * @param x la position du carreau
 	 * @param t le carreau avec ses propriétées
@@ -72,7 +73,8 @@ public class Wall {
 	}
 	
 	/*
-	 * Compare 2 compteurs avec une size du carreau (hauteur ou largeur)
+	 * Compare 2 compteurs avec une size du carreau
+	 *  (hauteur ou largeur)
 	 * 
 	 * @param cpt1 compteur n°1
 	 * @param cpt1 compteur n°2
@@ -106,7 +108,8 @@ public class Wall {
 		int cptD = 0;
 		boolean ok = false;
 		if(y > 0) {
-			char c = wall.get(y-1)[x]; // Lecture du caractère prsent
+			char c = wall.get(y-1)[x]; /* Lecture du caractère
+			présent*/
 			if(x > 0) {
 				for(int col = x; col > x-1 ; --col) { 
 					if(wall.get(y-1)[col-1]== c) 
@@ -151,7 +154,8 @@ public class Wall {
 	}
 	
 	/*
-	 * Verifie qu'on a une base assez grande et que le carreau ne clone pas un autre 
+	 * Verifie qu'on a une base assez grande et que le carreau
+	 *  ne clone pas un autre 
 	 * 
 	 * @param y Position en y
 	 * @param x Position en x
@@ -257,7 +261,8 @@ public class Wall {
 	private boolean hasHeight(int y, int x, Tile t) {
 		boolean ok = false;
 		if(x > 0 && x < MAX_WIDTH) {
-			// Si la hauteur du carreau a gauche et a droite nous permet de poser le carreau voulu
+			/* Si la hauteur du carreau a gauche et a droite nous permet
+			de poser le carreau voulu*/
 			if(countLeftHeight(y,x,t) && countRightHeight(y,x,t))
 				ok = true;
 		}
@@ -281,7 +286,6 @@ public class Wall {
 		}
 
 	
-	
 	/*
 	 * Ajouter un carreau à la grille
 	 * 
@@ -296,7 +300,8 @@ public class Wall {
 			if(wall.size() < row + t.getHeight() +1) { 
 				fillArray(t,y);
 			}
-			/* La contrainte d'avoir une base et un carreau d'une largeur et hauteur
+			/* La contrainte d'avoir une base et un carreau d'une
+			 *  largeur et hauteur
 			 inférieur à un autre déja posé
 			 */
 			if(hasBase(y,x,t) && hasHeight(y,x,t))
@@ -331,6 +336,5 @@ public class Wall {
 		}
 		return s.toString();
 	}
-	
 
 }

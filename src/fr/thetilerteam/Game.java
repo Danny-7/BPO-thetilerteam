@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Game{
-	
+
 	private ArrayList<Tile> tile; //tile liste de carreaux
 	private static final int MAX_TAILLE = 3;
 	private static final int MAX_SIZE = 45;
-		
-	
-	
+
+
+
 	/*
 	 * Retourne une liste de carreaux
 	 */
 	public Game() {
-		
+
 		tile = new ArrayList<>(Arrays.asList(
 				new Tile(IdCard.a,1,1,Color.BLUE),
 				new Tile(IdCard.b,1,2,Color.BLUE),
@@ -43,7 +43,7 @@ public class Game{
 	public int getSize(){
 		return tile.size();
 	}
-	
+
 	/*
 	 * La liste de carreaux est vide
 	 */
@@ -64,7 +64,7 @@ public class Game{
 				tab[i][j] = ' ';
 			}
 		}
-		
+
 		int cptcol=0;
 		for (Tile t: tile) { // Parcours des carreaux dans la liste
 			if(t.isColor(c, t) || t.isSize(c, t) ) {
@@ -81,7 +81,7 @@ public class Game{
 		}
 		return tab;
 	}
-	
+
 	/* Affiche les carreaux disponibles
 	 * 
 	 * @param c la carte qui a été piocher
@@ -97,7 +97,7 @@ public class Game{
 		}
 		return sb.toString();
 	}
-	
+
 	/*
 	 * Retourne le carreau souhaité
 	 * 
@@ -112,6 +112,6 @@ public class Game{
 		return tile.remove(i);
 	}
 }
-	
-	
+
+
 

@@ -6,7 +6,7 @@ public class Tile {
 	private int width;
 	private int height;
 	private Color color;
-	
+
 	/*
 	 * Constructeur d'un carreau
 	 * 
@@ -19,7 +19,7 @@ public class Tile {
 		this.height = height;
 		this.width = width;
 	}
-	
+
 	/*
 	 * Constructeur d'un carreau
 	 * 
@@ -32,7 +32,7 @@ public class Tile {
 		this(id,width,height);
 		this.color = color;
 	}
-	
+
 	/*
 	 * Retourne l'identifiant d'un carreau
 	 */
@@ -40,29 +40,29 @@ public class Tile {
 		assert(this.id != null);
 		return this.id;
 	}
-	
+
 	/*
 	 * Retourne la largeur d'un carreau
 	 */
 	public int getWidth() {
 		return this.width;
 	}
-	
+
 	/*
 	 * Retourne la hauteur d'un carreau
 	 */
 	public int getHeight() {
 		return this.height;
 	}
-	
+
 	/*
 	 * Retourne la couleur d'un carreau
 	 */
 	public String getColor() {
 		return this.color.name();
 	}
-	
-	
+
+
 	/* Verifie que la couleur de la carte et du carreau soi la même
 	 * 
 	 * @param c la carte
@@ -71,21 +71,21 @@ public class Tile {
 	public boolean isColor(Card c, Tile t) {
 		return c.getColor().equals(t.getColor());
 	}
-	
-		/* Verifie que la taille de la carte et du carreau soi la même
-		 * 
-		 * @param c la carte
-		 * @param t le carreau 
-		 */
+
+	/* Verifie que la taille de la carte et du carreau soi la même
+	 * 
+	 * @param c la carte
+	 * @param t le carreau 
+	 */
 	public boolean isSize(Card c,Tile t) {
 		String s = c.getSize().substring(6);
 		String larg = Integer.toString(t.getWidth());
 		String haut = Integer.toString(t.getHeight());
-		
+
 		return (s.equals(larg) || s.equals(haut));
 	}
-	
-	
-	
-	
+
+
+
+
 }

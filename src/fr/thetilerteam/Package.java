@@ -9,7 +9,7 @@ public class Package {
 	private static final int MAX_CARDS = 33; // MAX_CARDS max cartes dans un paquet
 	
 	/*
-	 *	Retourne un paquet de 33 cartes mï¿½langï¿½es
+	 *	Retourne un paquet de 33 cartes mélangées
 	 */
 	public Package() {
 		pack = new ArrayList<>(Arrays.asList(
@@ -85,22 +85,22 @@ public class Package {
 	 * Méthode pour les tests JUnit
 	 */
 	public String toString() {
-		String s = "";
+		StringBuilder s = new StringBuilder("");
 		int i = 0;
 		for(Card p : pack) {
 			++i;
 			if(!p.getColor().equals("UNKNOWN")) 
-				s+= i + "{" + p.getColor()+ "}" + System.lineSeparator();
+				s.append( i + "{" + p.getColor()+ "}" + System.lineSeparator());
 			else 
-				s+= i + "{" + p.getSize()+ "}" + System.lineSeparator();
+				s.append( i + "{" + p.getSize()+ "}" + System.lineSeparator());
 		}
-		return s;
+		return s.toString();
 	}
 
 	/*
 	 * 	Affiche la carte pioché
 	 * 
-	 * @param 
+	 * @param c La carte piochée
 	 */
 	public String toString(Card c) throws IllegalArgumentException{
 		String s= "";

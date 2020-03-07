@@ -18,14 +18,13 @@ public class Play {
 	}
 	
 
-	public void playChoice() {
-		System.out.println(" 1 - Piocher une carte !");
-	}
-
 	public void exit(){
 		 System.exit(0);
 	}
-
+	
+	/*
+	 * Renvoi vrai si la partie est terminé
+	 */
 	public boolean isFinish(){
 		return game.isEmpty() || p.isEmpty();
 	}
@@ -62,7 +61,10 @@ public class Play {
 			break;
 		}
 	}
-
+	
+	/*
+	 * Affiche le mur du jeu 
+	 */
 	public String toString(){
 		return wall.toString();
 	}

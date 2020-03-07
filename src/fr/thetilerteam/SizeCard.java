@@ -8,4 +8,4 @@ public enum SizeCard {
 	TAILLE2,
 	TAILLE3,
 	UNKNOWN
-};
+}

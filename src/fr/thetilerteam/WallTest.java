@@ -17,7 +17,8 @@ class WallTest {
 		System.out.println(w.toString());
 		while(!g.isEmpty()) {
 			
-			System.out.println("Entrez un caractère puis la position du carreau à posé (y,x)");
+			System.out.println("Entrez un caractère puis"
+					+ " la position du carreau à posé (y,x)");
 			String id = sc.next().trim();
 			int x = sc.nextInt()-1;
 			int y = sc.nextInt()-1;
@@ -33,7 +34,4 @@ class WallTest {
 		sc.close();
 			
 		}
-		
-	
-
 }
