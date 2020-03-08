@@ -39,34 +39,35 @@ public class Appli {
 				// On pioche une carte
 				Card c = play.pickCard();
 				System.out.println("Voici la carte piochée !" + "\t" + p.toString(c) + "\n");
-				System.out.println("Voici les carreaux disponible(s) pour la carte piochée:" + "\n" + game.toStringtab(c));
+				System.out.println("Voici les carreaux disponible(s) pour la carte piochée: \n" + "\n" + game.toStringtab(c));
 				System.out.println(CHOICE);
 				choix = sc.next().trim();
 				// Si le choix n'est pas OUI ou NON 
-				if(!choix.equalsIgnoreCase("OUI") || !choix.equalsIgnoreCase("NON")) {
+				while(!choix.equalsIgnoreCase("OUI") && !choix.equalsIgnoreCase("NON")) {
 					System.out.println(CHOICE);
 					choix = sc.next().trim();
 				}
 					while(choix.equalsIgnoreCase("NON")) {
 						s.addCard(c);
 						c = play.pickCard();
-						System.out.println("Voici la nouvelle carte piochée !" + "\t" + p.toString(c));
-						System.out.println("Voici les carreaux dispo pour la nouvelle carte piochée:" + " \n" + game.toStringtab(c));
+						System.out.println("Voici la nouvelle carte piochée !" + "\t" + p.toString(c) + "\n");
+						System.out.println("Voici les carreaux dispo pour la nouvelle carte piochée: \n" + " \n" + game.toStringtab(c));
 						System.out.println(CHOICE);
 						choix = sc.next();
 					}
-
 					System.out.println("Selectionner un carreau pour la consigne donnée [a-i][A-I] et la position (y,x)");
 					String chain = sc.next().trim();
 					int y = sc.nextInt() - 1;
 					int x = sc.nextInt() - 1;
-
-					try {
-						// On essaye de poser le carreau sinon on renvoi ce message d'erreur 
-						play.addTile(y, x, game.choice(chain));
-					} catch (IllegalArgumentException | IOException e) {
-						System.out.println("Entrez des coordonnées correct où verifiez les conditions de pose !!");
-					}
+	
+						try {
+							// On essaye de poser le carreau sinon on renvoi ce message d'erreur 
+							play.addTile(y, x, game.choice(chain));
+							
+						} catch (IllegalArgumentException | IOException e) {
+							System.out.println("Entrez des coordonnées correct où verifiez les conditions de pose !!");
+						}
+					
 					// Affichage du mur
 					System.out.println(play.toString() + "\n");
 					System.out.println("Voulez vous continuer ou arrêter de jouer ? (stop ou next)");

@@ -285,7 +285,6 @@ public class Wall {
 		       wall.get(y)[z] = t.getId().tochar();
 		}
 
-	
 	/*
 	 * Ajouter un carreau à la grille
 	 * 
@@ -297,6 +296,7 @@ public class Wall {
 		// Si la taille du carreau en largeur permet de poser le carreau
 		if(ismaxSize(x,t) && wallSize(y,x)) {
 			int row = y;
+			
 			if(wall.size() < row + t.getHeight() +1) { 
 				fillArray(t,y);
 			}
@@ -304,9 +304,9 @@ public class Wall {
 			 *  largeur et hauteur
 			 inférieur à un autre déja posé
 			 */
-			if(hasBase(y,x,t) && hasHeight(y,x,t))
+			if(hasBase(y,x,t) && hasHeight(y,x,t)) 
 				this.place(y,x,t);	
-		}
+			}
 	}
 
 	/* 
