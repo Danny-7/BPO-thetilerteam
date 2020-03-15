@@ -46,7 +46,7 @@ public class Play {
 	 */
 	public void addRandomTile() throws IOException {
 		Random r = new Random();
-		switch(1 + r.nextInt(4-0)) {
+		switch(1) {
 		case 1: 
 			addTile(0,0,new Tile(IdCard.x,3,1));
 			break;

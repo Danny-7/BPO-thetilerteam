@@ -280,9 +280,11 @@ public class Wall {
 	private void place(int y, int x, Tile t){
 		   int mx_Height = y + t.getHeight();
 		   int mx_Width = x + t.getWidth();
-		   for(; y < mx_Height;++y)
-		     for(int z = x; z < mx_Width; ++z)
-		       wall.get(y)[z] = t.getId().tochar();
+		   for(int i = y; i < mx_Height; ++i){
+				  for(int z = x; z < mx_Width; ++z){
+				    wall.get(i)[z] = t.getId().tochar();
+				  }
+			}
 		}
 
 	/*
@@ -292,22 +294,24 @@ public class Wall {
 	 * @param y postion souhaité
 	 * @param id carreau souhaité
 	 */
-	public void addTile(int y, int x, Tile t) throws IOException{ 
+	public void addTile(int y, int x, Tile t){ 
 		// Si la taille du carreau en largeur permet de poser le carreau
-		if(ismaxSize(x,t) && wallSize(y,x)) {
-			int row = y;
-			
-			if(wall.size() < row + t.getHeight() +1) { 
-				fillArray(t,y);
-			}
-			/* La contrainte d'avoir une base et un carreau d'une
-			 *  largeur et hauteur
+		if(ismaxSize(x,t) && wallSize(y,x))
+			throw new IllegalArgumentException("La position du entrée est incorrect ou le carreau dépasse du mur");
+		
+		int row = y;
+		if(wall.size() < row + t.getHeight() +1) { 
+			fillArray(t,y);
+		}
+		/* La contrainte d'avoir une base et un carreau d'une
+		 *  largeur et hauteur
 			 inférieur à un autre déja posé
-			 */
-			if(hasBase(y,x,t) && hasHeight(y,x,t)) 
-				this.place(y,x,t);	
-			}
+		 */
+		if(hasBase(y,x,t) && hasHeight(y,x,t)) 
+			throw new IllegalArgumentException("Le carreau n'a pas une base assez grande ou/et le carreau clone un autre carreau");
+		this.place(y,x,t);	
 	}
+	
 
 	/* 
 	 * Affiche le mur du jeu 
