@@ -296,20 +296,22 @@ public class Wall {
 	 */
 	public void addTile(int y, int x, Tile t){ 
 		// Si la taille du carreau en largeur permet de poser le carreau
-		if(ismaxSize(x,t) && wallSize(y,x))
+		if(!(ismaxSize(x,t) && wallSize(y,x)))
 			throw new IllegalArgumentException("La position du entrée est incorrect ou le carreau dépasse du mur");
-		
-		int row = y;
-		if(wall.size() < row + t.getHeight() +1) { 
-			fillArray(t,y);
+		else {
+			int row = y;
+			if(wall.size() < row + t.getHeight() +1) { 
+				fillArray(t,y);
+			}
+			/* La contrainte d'avoir une base et un carreau d'une
+			 *  largeur et hauteur
+				 inférieur à un autre déja posé
+			 */
+			if(!(hasBase(y,x,t) && hasHeight(y,x,t))) 
+				throw new IllegalArgumentException("Le carreau n'a pas une base assez grande ou/et le carreau clone un autre carreau");
+			else
+				this.place(y,x,t);
 		}
-		/* La contrainte d'avoir une base et un carreau d'une
-		 *  largeur et hauteur
-			 inférieur à un autre déja posé
-		 */
-		if(hasBase(y,x,t) && hasHeight(y,x,t)) 
-			throw new IllegalArgumentException("Le carreau n'a pas une base assez grande ou/et le carreau clone un autre carreau");
-		this.place(y,x,t);	
 	}
 	
 

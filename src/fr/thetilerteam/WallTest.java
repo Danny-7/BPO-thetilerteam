@@ -1,6 +1,5 @@
 package fr.thetilerteam;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
@@ -8,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class WallTest {
 
 	@Test
-	void test() throws IllegalArgumentException, IOException {
+	void test() throws IllegalArgumentException {
 		Wall w = new Wall();
 		Game g = new Game();
 		Play p = new Play(g,w);
@@ -25,7 +24,7 @@ class WallTest {
 			try {
 				p.addTile(y,x, g.choice(id));
 			}
-			catch(IllegalArgumentException  | IOException e) {
+			catch(IllegalArgumentException ie) {
 				System.out.println("Impossible de poser le carreau ! ");
 			}
 			

@@ -1,7 +1,6 @@
 package fr.thetilerteam;
 
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Appli {
@@ -23,7 +22,7 @@ public class Appli {
 		// Placement de la pièce neutre
 		try {
 			play.addRandomTile();
-		} catch (IOException e) {
+		} catch (IllegalArgumentException ie) {
 			System.out.println("Impossible !!");
 
 		}
@@ -64,8 +63,8 @@ public class Appli {
 							// On essaye de poser le carreau sinon on renvoi ce message d'erreur 
 							play.addTile(y, x, game.choice(chain));
 							
-						} catch (IllegalArgumentException | IOException e) {
-							System.out.println("Entrez des coordonnées correct où verifiez les conditions de pose !!");
+						} catch (IllegalArgumentException ie) {
+							System.out.println(ie.getMessage());
 						}
 					
 					// Affichage du mur

@@ -31,7 +31,7 @@ public class Play {
 	/*
 	 * Ajouter un carreau au mur
 	 */
-	public void addTile(int y, int x, Tile t) throws IOException{
+	public void addTile(int y, int x, Tile t) throws IllegalArgumentException{
 		wall.addTile(y,x,t);
 	}
 	/*
@@ -44,7 +44,7 @@ public class Play {
 	/*
 	 * Placement de la pièce neutre sur le mur
 	 */
-	public void addRandomTile() throws IOException {
+	public void addRandomTile() throws IllegalArgumentException {
 		Random r = new Random();
 		switch(1) {
 		case 1: 
